@@ -1,0 +1,138 @@
+
+==================== FINAL INTERFACE ====================
+2017-05-25 22:46:12.842537 UTC
+
+interface piggy-app-0.1.0.0-6QUYa2qwkbEC8lbTaqFmVE:Logger 8002
+  interface hash: 25dfd2c40575871db780c2eb5afda8aa
+  ABI hash: 7b0e0a2c5f5733437f0a2f0d3eb76157
+  export-list hash: 36d59c01676a2e1d90267c0ff2de0bdc
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: f6624f22fcdd76ed0ac6625466e2d712
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  Logger.debugMsg
+  Logger.errorMsg
+  Logger.infoMsg
+  Logger.verboseMsg
+module dependencies:
+package dependencies: base-4.9.1.0* ghc-prim-0.5.0.0
+                      integer-gmp-1.0.0.1
+orphans: base-4.9.1.0:GHC.Base base-4.9.1.0:GHC.Float
+family instance modules: base-4.9.1.0:Control.Applicative
+                         base-4.9.1.0:Data.Either base-4.9.1.0:Data.Functor.Const
+                         base-4.9.1.0:Data.Monoid base-4.9.1.0:Data.Type.Equality
+                         base-4.9.1.0:GHC.Generics base-4.9.1.0:GHC.IO.Exception
+                         base-4.9.1.0:GHC.TypeLits
+import  -/  base-4.9.1.0:GHC.Base c4231c43c07e46080a26bf94094c7aa1
+import  -/  base-4.9.1.0:Prelude 22dd289b8469a8fa8dc81cab7b237771
+import  -/  base-4.9.1.0:System.IO c9de64c5f5407c4cf1c52500c4d15200
+import  -/  ghc-prim-0.5.0.0:GHC.Types 89f8de4f08018c9177c98d979eae0e45
+ea8fde061b29e6e5e4cb67d2b721f90b
+  $trModule :: GHC.Types.Module
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Module
+                   Logger.$trModule2
+                   Logger.$trModule1) -}
+7b71b77789291ee33d9bdd6afc37c7c3
+  $trModule1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "Logger"#) -}
+d199b0f822fc5a8c30c23a0338b529f1
+  $trModule2 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS
+                   "piggy-app-0.1.0.0-6QUYa2qwkbEC8lbTaqFmVE"#) -}
+3f79875a0ba0e451c11390296b345ebf
+  debugMsg :: GHC.Base.String -> GHC.Types.IO ()
+  {- Arity: 2,
+     Unfolding: InlineRule (0, True, True)
+                Logger.debugMsg1
+                  `cast`
+                (<GHC.Base.String>_R ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
+d1dad17b2b0d17642a53e36784ca023e
+  debugMsg1 ::
+    GHC.Base.String
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 2, Unfolding: (Logger.debugMsg3 Logger.debugMsg2) -}
+5267eae19f168ebc42853fcf699b9b1b
+  debugMsg2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "DEBUG"#) -}
+ad6279b292bbff4695a03c49192d43a7
+  debugMsg3 ::
+    GHC.Base.String
+    -> GHC.Base.String
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 3, Strictness: <L,1*U><L,U><S,U>,
+     Unfolding: (\ (x :: GHC.Base.String)
+                   (y :: GHC.Base.String)
+                   (eta :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 GHC.IO.Handle.Text.hPutStr2
+                   GHC.IO.Handle.FD.stdout
+                   (GHC.CString.unpackAppendCString#
+                      "["#
+                      (GHC.Base.++
+                         @ GHC.Types.Char
+                         x
+                         (GHC.CString.unpackAppendCString# "] "# y)))
+                   GHC.Types.True
+                   eta) -}
+e824b10df42719b4270e16973f98eef7
+  errorMsg :: GHC.Base.String -> GHC.Types.IO ()
+  {- Arity: 2,
+     Unfolding: InlineRule (0, True, True)
+                Logger.errorMsg1
+                  `cast`
+                (<GHC.Base.String>_R ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
+89ed19a2f7e6695cdde7c045a3afb92a
+  errorMsg1 ::
+    GHC.Base.String
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 2, Unfolding: (Logger.debugMsg3 Logger.errorMsg2) -}
+ce10788b8b50f238f9cb6792ddf87d7c
+  errorMsg2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "ERROR"#) -}
+3cd950fe6b589ca3582b4b6d29b076f5
+  infoMsg :: GHC.Base.String -> GHC.Types.IO ()
+  {- Arity: 2,
+     Unfolding: InlineRule (0, True, True)
+                Logger.infoMsg1
+                  `cast`
+                (<GHC.Base.String>_R ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
+193246c6e002cba781586a38543ff432
+  infoMsg1 ::
+    GHC.Base.String
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 2, Unfolding: (Logger.debugMsg3 Logger.infoMsg2) -}
+dc413aa4fc4481d60021bfd04c3874ec
+  infoMsg2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "INFO"#) -}
+7f40f6556bf669b69c2e9bc06f8cc0a6
+  verboseMsg :: GHC.Base.String -> GHC.Types.IO ()
+  {- Arity: 2,
+     Unfolding: InlineRule (0, True, True)
+                Logger.verboseMsg1
+                  `cast`
+                (<GHC.Base.String>_R ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
+ea9f27cd8eddfd094d2f9d943620cc31
+  verboseMsg1 ::
+    GHC.Base.String
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 2, Unfolding: (Logger.debugMsg3 Logger.verboseMsg2) -}
+18944266ab8881ebc5d280a648cecef5
+  verboseMsg2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "VERBOSE"#) -}
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: safe
+require own pkg trusted: False
+
