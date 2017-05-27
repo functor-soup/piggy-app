@@ -8,7 +8,7 @@ module Types
   ) where
 
 import Data.Aeson
-import Data.HashMap.Lazy
+import Data.HashMap
 import GHC.Generics
 import Prelude hiding (last)
 
@@ -35,7 +35,11 @@ data Country
   | NZD
   | BRL
   | RUB
-  deriving (Show, Generic)
+  deriving (Eq, Show, Generic)
+
+instance FromJSON Country
+
+instance FromJSONKey Country
 
 data GetAllMap = GetAllMap
   { numbahm :: Float
@@ -60,5 +64,10 @@ instance FromJSON GetAllMap where
       GetAllMap <$> v .: "15m" <*> v .: "last" <*> v .: "buy" <*> v .: "sell" <*> v .: "symbol"
 
 data GetAll =
-  GetAll (HashMap Country GetAllMap)
-  deriving (Show)
+  HashMap Country
+          GetAllMap
+  deriving (Generic, Show)
+
+instance FromJSON GetAll
+
+instance FromJSONKey GetAll

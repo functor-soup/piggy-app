@@ -28,6 +28,8 @@ library
                       , unordered-containers
                       , mtl
                       , http-client
+                      , hashmap
+                      , lens
   default-language:    Haskell2010
 
 executable piggy-app-exe
