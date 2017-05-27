@@ -26,4 +26,4 @@ getFile :: String -> EitherT IOException IO B.ByteString
 getFile fileName = Control.Monad.Catch.catch (liftIO $ B.readFile fileName) left
 
 getUrl :: B.ByteString -> EitherT String IO String
-getUrl = hoistEither . decodeEither
+getUrl = hoistEither . fmap url . decodeEither
