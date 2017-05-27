@@ -5,17 +5,19 @@ module Logger
   , verboseMsg
   ) where
 
-putMsg :: String -> String -> IO ()
-putMsg x y = putStrLn $ "[" ++ x ++ "] " ++ y
+type GenMsgType = String -> String
 
-debugMsg :: String -> IO ()
+putMsg :: String -> String -> String
+putMsg x y = "[" ++ x ++ "] " ++ y ++ "\n"
+
+debugMsg :: GenMsgType
 debugMsg = putMsg "DEBUG"
 
-errorMsg :: String -> IO ()
+errorMsg :: GenMsgType
 errorMsg = putMsg "ERROR"
 
-infoMsg :: String -> IO ()
+infoMsg :: GenMsgType
 infoMsg = putMsg "INFO"
 
-verboseMsg :: String -> IO ()
+verboseMsg :: GenMsgType
 verboseMsg = putMsg "VERBOSE"
