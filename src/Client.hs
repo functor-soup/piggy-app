@@ -39,7 +39,7 @@ getConversion url country numbah =
 -- log custom version of decoded Json
 processGetTickerResponse :: (Response B.ByteString) -> EitherT String (WriterT String IO) GetAll
 processGetTickerResponse resp = do
-  let decoded_ = resp ^. responseBody & eitherDecode :: Either String GetAll
+  let decoded_ = (resp ^. responseBody & eitherDecode) :: Either String GetAll
   case decoded_ of
     Right a -> (lift . tell $ infoMsg "Server sent back " ++ show a) >> right a
     Left b -> (lift . tell $ errorMsg b) >> left b

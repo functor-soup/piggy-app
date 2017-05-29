@@ -30,6 +30,7 @@ library
                       , http-client
                       , hashmap
                       , lens
+                      , containers
   default-language:    Haskell2010
 
 executable piggy-app-exe
