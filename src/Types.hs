@@ -5,6 +5,7 @@ module Types
   ( Country
   , GetAllMap
   , GetAll
+  , PostConversion(..)
   ) where
 
 import Data.Aeson
@@ -70,6 +71,6 @@ type GetAll = Map Country GetAllMap
 data PostConversion = PostConversion
   { country :: Country
   , numbah :: Float
-  } deriving (Generic, Eq)
+  } deriving (Generic, Eq, Show)
 
 instance FromJSON PostConversion

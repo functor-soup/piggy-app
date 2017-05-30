@@ -28,18 +28,16 @@ getCall url = do
 getTicker :: String -> EitherT String (WriterT String IO) (Response B.ByteString)
 getTicker baseUrl = (getCall $ baseUrl ++ "/ticker") & bimapEitherT displayException id
 
-getConversion :: String
-              -> Country
-              -> Float
-              -> EitherT String (WriterT String IO) (Response B.ByteString)
+getConversion :: String -> Country -> Float -> EitherT String (WriterT String IO) B.ByteString
 getConversion url country numbah =
   let url_ = url ++ "tobtc?currency=" ++ (show country) ++ "&value=" ++ (show numbah)
-  in (getCall url_) & bimapEitherT displayException id
+  in (getCall url_) & bimapEitherT displayException (\x -> x ^. responseBody)
 
 -- log custom version of decoded Json
-processGetTickerResponse :: (Response B.ByteString) -> EitherT String (WriterT String IO) GetAll
+processGetTickerResponse :: (Response B.ByteString)
+                         -> EitherT String (WriterT String IO) B.ByteString
 processGetTickerResponse resp = do
   let decoded_ = (resp ^. responseBody & eitherDecode) :: Either String GetAll
   case decoded_ of
-    Right a -> (lift . tell $ infoMsg "Server sent back " ++ show a) >> right a
+    Right a -> (lift . tell $ infoMsg "Server sent back " ++ show a) >> right (resp ^. responseBody)
     Left b -> (lift . tell $ errorMsg b) >> left b
