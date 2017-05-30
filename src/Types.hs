@@ -66,3 +66,10 @@ instance FromJSON GetAllMap where
       GetAllMap <$> v .: "15m" <*> v .: "last" <*> v .: "buy" <*> v .: "sell" <*> v .: "symbol"
 
 type GetAll = Map Country GetAllMap
+
+data PostConversion = PostConversion
+  { country :: Country
+  , numbah :: Float
+  } deriving (Generic, Eq)
+
+instance FromJSON PostConversion
